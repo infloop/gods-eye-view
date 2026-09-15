@@ -5,8 +5,10 @@ services:
       additional_contexts:
         npmcache: ~/.npm
     ports:
-      - "4173:4173"
+      - "0.0.0.0:4173:4173"
     volumes:
       - .:/app
       - /app/node_modules
     command: npm run dev -- --host 0.0.0.0 --port 4173
+    env_file:
+      - .env
